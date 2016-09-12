@@ -1,2 +1,6 @@
 # csbuttons
-jQuery plugin for social share
+
+[Demo & Install](http://acrow.fr/csbuttons/)
+
+Social customs counter buttons (Facebook, Twitter, Google+, LinkedIn, Pinterest)
+
