@@ -180,6 +180,10 @@
 						})
 					}
 				break;
+				case 'whatsapp': // WhatsApp share
+					shareUrl	= 'whatsapp://send?text=' + url;
+					shareUrl 	= (txt != null) ? shareUrl + ' ' + txt : shareUrl;
+				break;
 				default: // Default Facebook share
 					var facebook 	= $(this);
 					popupWidth 	= 670;
