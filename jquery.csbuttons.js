@@ -1,4 +1,4 @@
-// VERSION: 1.2 LAST UPDATE: 12.09.2016
+// VERSION: 1.2 LAST UPDATE: 14.12.2016
 /*
  *           .       .   .
  *          |       |   |
@@ -6,7 +6,7 @@
  * |   `-. | | | | |   |   | | | | `-.
  * `-' `-' `-' `-` `-' `-' `-' ' ' `-'
  *
- * Social customs counter buttons (Facebook, Twitter, Google+, LinkedIn, Pinterest)
+ * Social customs counter buttons (Facebook, Twitter, Google+, LinkedIn, Pinterest, WhatsApp by @jkrzefski)
  * Made by Mathieu ORLANDO, contact@acrow.fr, Acrow, FRANCE
  * Website: http://csbuttons.acrow.fr/
  */
@@ -194,11 +194,13 @@
 					{
 						$('span.csbuttons-count', facebook).text(0);
 						$.getJSON('http://graph.facebook.com/?id=' + $URL, function( fbdata ) {
-							$('span.csbuttons-count', facebook).text(fbdata.share.share_count);
+							if (fbdata.share != undefined) {
+								$('span.csbuttons-count', facebook).text(fbdata.share.share_count);
 
-							totalShare += (isNaN(parseInt(fbdata.share.share_count))) ? 0 : parseInt(fbdata.share.share_count);
-							if(parametres.total != null && i == nbButtons)
-								$(parametres.total).text(totalShare);
+								totalShare += (isNaN(parseInt(fbdata.share.share_count))) ? 0 : parseInt(fbdata.share.share_count);
+								if(parametres.total != null && i == nbButtons)
+									$(parametres.total).text(totalShare);
+							}
 						});
 					}
 				break;
