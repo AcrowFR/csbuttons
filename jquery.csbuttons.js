@@ -79,7 +79,7 @@
 					if(count)
 					{
 						$('span.csbuttons-count', twitter).text(0);
-						$.getJSON('http://public.newsharecounts.com/count.json?url=' + $URL, function( twitdata ) {
+						$.getJSON('https://public.newsharecounts.com/count.json?url=' + $URL, function( twitdata ) {
 							$('span.csbuttons-count', twitter).text(twitdata.count);
 							totalShare += (isNaN(parseInt(twitdata.count))) ? 0 : parseInt(twitdata.count);
 							if(parametres.total != null && i == nbButtons)
@@ -133,7 +133,7 @@
 								}
 							};
 
-							$.getJSON( 'http://share.yandex.ru/gpp.xml?url=' + $URL + '&callback=?', function(result){
+							$.getJSON( 'https://share.yandex.ru/gpp.xml?url=' + $URL + '&callback=?', function(result){
 								var nb = result.replace('/**/ typeof  === \'function\' && ("', '');
 								nb = nb.replace('");', '');
 								$('span.csbuttons-count', google).text(result);
@@ -153,7 +153,7 @@
 					if(count)
 					{
 						$('span.csbuttons-count', linkedin).text(0);
-						$.getJSON('http://www.linkedin.com/countserv/count/share?url=' + $URL + '&callback=?', function( indata ) {
+						$.getJSON('https://www.linkedin.com/countserv/count/share?url=' + $URL + '&callback=?', function( indata ) {
 							$('span.csbuttons-count', linkedin).text(indata.count);
 							totalShare += (isNaN(parseInt(indata.count))) ? 0 : parseInt(indata.count);
 							if(parametres.total != null && i == nbButtons)
@@ -165,7 +165,7 @@
 					var pinterest = $(this);
 					popupWidth 	= 1000;
 					popupHeight = 617;
-					shareUrl	= 'http://www.pinterest.com/pin/create/button/?url=' + url;
+					shareUrl	= 'https://www.pinterest.com/pin/create/button/?url=' + url;
 					shareUrl 	= (media != null) ? shareUrl + '&media=' + media : shareUrl;
 					shareUrl 	= (txt != null) ? shareUrl + '&description=' + txt : shareUrl;
 
@@ -193,7 +193,7 @@
 					if(count)
 					{
 						$('span.csbuttons-count', facebook).text(0);
-						$.getJSON('http://graph.facebook.com/?id=' + $URL, function( fbdata ) {
+						$.getJSON('https://graph.facebook.com/?id=' + $URL, function( fbdata ) {
 							if (fbdata.share != undefined) {
 								$('span.csbuttons-count', facebook).text(fbdata.share.share_count);
 
