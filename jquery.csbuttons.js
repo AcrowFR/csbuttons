@@ -14,6 +14,9 @@
 {
 	$.fn.cSButtons = function(options)
 	{
+		// Detect browser
+		var useragent = navigator.userAgent;
+		
 		// Default params
 		var defaults =
 		{
@@ -181,7 +184,17 @@
 					}
 				break;
 				case 'whatsapp': // WhatsApp share
-					shareUrl	= 'whatsapp://send?text=' + url;
+					
+					if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+						
+						// Set url for mobile
+						shareUrl	= 'whatsapp://send?text=' + url;
+					} else {
+						
+						// Set url for desktop web.whatsapp
+						shareUrl 	= 'https://web.whatsapp.com/send?text=' + url;
+					}
+					
 					shareUrl 	= (txt != null) ? shareUrl + ' ' + txt : shareUrl;
 				break;
 				default: // Default Facebook share
